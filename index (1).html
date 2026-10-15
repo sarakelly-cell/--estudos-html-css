@@ -1,134 +1,497 @@
+<!-- Crie na raiz um arquivo chamado 'aula13.html'-->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Vitual</title>
-</head>
-<body>
-    <!-- Estrutura da pagina-->
-    <!-- Aula do dia 06/10/2026-->
-    <div id="page">
-        <!--Inicio do cabeçalho--> <!--Div é uma divisão de paginas-->
-        <header>
-           <!-- linha01, logo, pesquisa, icones-->
-           <div class="rows">
-           <!--logo-->
-           <div id="logo">logo</div>
-           <!--pesquisa-->
-           <div id="search">
-            <form action="#" method="get">
-                <label for="txtsearch">Pesquisa:</label>
-                <input type="search" id="txtsearch" name="txtsearch">
-                <input type="submit" value="pesquisar">
-            </form>
-           </div>
-           <!--icones-->
-           <div id="icons">
-            <nav id="nav-icons">
-                <ul>
-                    <li><a href="">fav</a></li>
-                    <li><a href="">car</a></li>
-                    <li><a href="">user</a></li>
-                </ul>
-           </nav>
-           </div>
-           </div>
-           <!--Fim da linha01-->
-
-           <!-- linha02 do 'menu' -->
-            <div class="rows">
-                <nav id="main-menu">
-                    <ul>
-                        <li>home</li>
-                        <li>categoria 01
-                            <ul>
-                                <li>sub-categoria 01
-                                    <ul>
-                                        <li>produto 01
-                                            <ul>
-                                                <li>produto 01</li>
-                                                <li>produto 02</li>
-                                                <li>produto 03</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                        <li>sub-categoria 02
-                            <ul>
-                                <li>produtos 01
-                                    <ul>
-                                        <li>produto 01</li>
-                                        <li>produto 02</li>
-                                        <li>produto 03</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                            </ul>
-                        </li>
-                    </ul>                       
-                </nav>
-            </div>
-
-        </header>
-        <main>
-            <!--inicio da linha 01 'banner'-->
-            <div class="rows">Banner</div>
-            <!--fim da linha 01-->
-
-            <!--Inicio da linha 02 'slider de 4 produtos'-->
-            <div class="rows">
-                <!--
-                div.sliders*4 depois aperta o enter
-                ele vai replicar 4x a <div class="sliders"></div>
-                -->
-                <div class="sliders">slider1</div>
-                <div class="sliders">slider2</div>
-                <div class="sliders">slider3</div>
-                <div class="sliders">slider4</div>
-            </div>
-            <!--fim da linha 02-->
-
-            <!--inicio da linha 03 'banner promocional'-->
-            <div class="rows">banner promocional</div>
-            <!--fim da linha 03-->
-
-            <!--inicio da linha 04-->
-            <div class="rows">texto e img</div>
-            <!--fim da linha 04-->
-
-            <!--inicio da linha 05-->
-            <div class="rows">img e texto</div>
-            <!--fim da linha 05-->
-        </main>
-        <!-- fim do corpo-->
-
-        <!--inicio do rodape-->
-        <footer>
-        <!--Fim do rodape-->
-        </footer>
-    </div>
-
-<!-- Folha de Estilo-->
-<!--Inicio-->
+    <title>Display FLEX</title>
+    <!--Inicio da folha de estilo-->
     <style>
-        /* configurando a tag 'body' */
+        :root{
+            /* criando a paleta de cores do projeto */
+            --primary:      #2563eb;
+            --secondary:    #3b82f6;
+            --bg:           #f8fafc;
+            --text:         #1e293b;
+            --card-bg:      #fff;
+            --container-bg: #e2e8f0;
+            --item-bg:      #3b82f6;
+            --accent:       #f59e0b;
+            --grey:         #64748b;
+        }
+ 
         body{
-            background-color: burlywood;
-        }
-        /* configurqando o 'ID' do html */
-        #page{
-            background-color: blue;
-        }
-        /* configurando o 'CLASS' do html */
-        .sliders{
-            background-color: green;
+            font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color:var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
     </style>
-
-<!--fim-->
-
-
+    <!--Fim da folha de estilo-->
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- folha de estilo - 'estudo'-->
+        <style>
+            .main-wrapper{
+                max-width: 1200px;
+                margin: 0 auto;
+                margin-top: 20px;
+                padding: 40px;
+                background-color: var(--card-bg);
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            }
+            header{
+                text-align: center;
+                margin-bottom: 50px;
+                padding-bottom: 20px;
+                border-bottom:3px solid var(--container-bg);
+            }
+            h1{
+                color:var(--primary);
+                font-size: 2.8rem;
+                margin-bottom: 10px;
+            }
+            h2.subtitle{
+                font-size: 1.2rem;
+                color:var(--grey)
+            }
+            h2.section-title{
+                text-align: center;
+                background-color: var(--primary);
+                color: var(--card-bg);
+                padding: 15px;
+                border-radius: 8px;
+                margin: 60px auto 30px;
+            }
+            h3{
+                color: var(--primary);
+                border-bottom: 2px solid var(--container-bg);
+                padding-bottom: 10px;
+                margin-top: 40px;
+            }
+            p{ font-size: 1.1rem; };
+        </style>
+        <header>
+            <h1>O guia pré-definitivo > CSS Flexbox</h1>
+            <h2 class="subtitle">
+                Material de Apoio - Tii16
+            </h2>
+        </header>
+ 
+        <main>
+            <section>
+                <h2 class="section-title">
+                    Parte 1: Exemplos Visuais e Interativos
+                </h2>
+                <p>
+                    Abaixo temos as demostrações visuais das principais propriedades
+                    do 'FlexBox'. Você pode alterar as propriedades no código do 'CSS'
+                    (Inspecionar Elemento), para a mágica acontecer ao vivo.
+                </p>
+                <!--Inicio do Artigo 1-->
+                <article>
+                    <h3>1. Container Básico</h3>
+                    <div class="demo-container flex-container">
+                        <div class="demo-item">A</div>
+                        <div class="demo-item">B</div>
+                        <div class="demo-item">C</div>
+                        <div class="demo-item">D</div>
+                    </div>
+                </article>
+                <!--CSS do Artigo 1. Container Básico-->
+                <style>
+                    .flex-container{
+                        display: flex;
+                    }
+                    .flex-container>div{
+                        padding: 5px 10px;
+                        margin: 5px;
+                    }
+                    .demo-container{
+                        background-color: var(--container-bg);
+                        border-radius: 8px;
+                        padding: 15px;
+                        margin: 20px 0px;
+                        border:  2px dashed var(--grey);
+                    }
+                    .demo-item{
+                        background-color: var(--item-bg);
+                        color: var(--card-bg);
+                        border-radius: 6px;
+                        font-weight: bold;
+                        font-size: 24px;
+                        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                    }
+                </style>
+                <!-- Fim do Artigo 1-->
+               
+                <!--Inicio do Artigo 2-->
+                <article>
+                    <h3>2. Flex direction</h3>
+                    <p>A propriedade define em que direção o contêiner irá empilhar os itens flexíveis.</p>
+                    <div class="demo-container flex-direction">
+                        <!-- div.demo-item*4 depois aperta o 'ENTER' -->
+                        <div class="demo-item">A</div>
+                        <div class="demo-item">B</div>
+                        <div class="demo-item">C</div>
+                        <div class="demo-item">D</div>
+                    </div>
+                </article>
+                <!--CSS do Artigo 2. Flex direction-->
+                <style>
+                    .flex-direction>div{
+                        padding: 10px;
+                        margin: 5px;
+                        flex: 1;
+                    }
+                    .flex-direction{
+                        display: flex;
+                        flex-direction: row; /* MODO PADRÃO */
+                        flex-direction: column;
+                        flex-direction: row-reverse;
+                        flex-direction: column-reverse;
+                    }
+                </style>
+                <!--Fim do Artigo 2-->
+ 
+                <!-- Inicio do Artigo 3 -->
+                <article>
+                    <h3>3. Flex wrap</h3>
+                    <p>
+                        A propriedade especifica se os itens flexíveis devem quebrar para a próxima
+                        linha caso não haja espaço suficiente na viewport.
+                    </p>
+                    <div class="demo-container flex-wrap-demo">
+                        <!-- div.demo-item*12 depois aperta o 'ENTER'-->
+                        <div class="demo-item">1</div>
+                        <div class="demo-item">2</div>
+                        <div class="demo-item">3</div>
+                        <div class="demo-item">4</div>
+                        <div class="demo-item">5</div>
+                        <div class="demo-item">6</div>
+                        <div class="demo-item">7</div>
+                        <div class="demo-item">8</div>
+                        <div class="demo-item">9</div>
+                        <div class="demo-item">10</div>
+                        <div class="demo-item">11</div>
+                        <div class="demo-item">12</div>
+                    </div>
+                </article>
+                <!-- CSS do Artigo 3. Flex wrap -->
+                <style>
+                    .flex-wrap-demo>div{
+                        width: 70px;
+                        height: 70px;
+                        margin: 10px;
+                        border-radius: 50%;
+                        background-color: var(--accent);
+                        /* centralizar o conteudo */
+                        display: flex;
+                        justify-content: center; /* centraliza horizontalmente*/
+                        align-items: center; /* centyraliza verticalmente*/
+                    }
+                    .flex-wrap-demo{
+                        display: flex;
+                        flex-wrap: nowrap;/*Modo Padrão*/
+                        flex-wrap: wrap;
+                        /* Flex Flow - junção do direction + wrap*/
+                        flex-flow: row wrap;
+                        flex-flow: row-reverse wrap;
+                    }
+                </style>
+                <!-- Fim do Artigo 3-->
+               
+                <!-- Inicio Artigo 4 -->
+                <article>
+                    <h3>4. Justify Content</h3>
+                    <p>
+                        Esta propriedade é usada para alinhar os itens flexíveis
+                        no <b>Eixo Principal</b> (horizontalmente, se a direção for row)
+                        ou (verticalmente, se a direção for column).
+                    </p>
+                    <div class="demo-container justify-content">
+                    <!-- div.demo-item*3 depois aperta o 'ENTER'-->
+                    <div class="demo-item">Item 1</div>
+                    <div class="demo-item">Item 2</div>
+                    <div class="demo-item">Item 3</div>
+                    </div>
+                </article>
+                <!--CSS do Artigo 4. Justify Content-->
+                <style>
+                    .justify-content>div{
+                        padding: 20px 30px;
+                        margin: 10px;
+                    }
+                    .justify-content{
+                        display: flex;
+                        flex-wrap: wrap;/*.OU. flex-flow: row wrap; */
+                        justify-content: left;/*Modo Padrão*/
+                        justify-content: right;
+                        justify-content: center;
+                        justify-content: space-between;
+                        justify-content: space-around;
+                    }
+                </style>
+                <!-- Fim do Artigo 4 -->
+ 
+                <!-- Inicio Artigo 5 -->
+                <article>
+                    <h3>5. Align items</h3>
+                    <p>
+                        Esta propriedade é usada para alinhar os itens flexíveis
+                        no <b>Eixo Cruzado</b> (verticalmente, se a direção for row)
+                        ou (horizontalmente, se a direction for column).
+                    </p>
+                    <div class="demo-container align-items">
+                        <div class="demo-item">A</div>
+                        <div class="demo-item">B</div>
+                        <div class="demo-item">C</div>
+                        <div class="demo-item">D</div>
+                    </div>
+                    <p>
+                        Expemplo com <b>baseline</b> (alinhamento pela base da fonte).
+                    </p>
+                    <div class="demo-container align-items-base">
+                        <div><h3>A</h3></div>
+                        <div><small>B</small></div>
+                        <div><h6>C</h6></div>
+                        <div><p>D</p></div>
+                    </div>
+                </article>
+                <!-- CSS do Artigo 5. Align items -->
+                <style>
+                    .align-items>div{
+                        padding: 20px;
+                        margin: 20px;
+                    }
+                    .align-items{
+                        height: 180px;
+                        display: flex;
+                        align-items:stretch; /* Modo Padrão */
+                        align-items: start;
+                        align-items: center;
+                        align-items: end;  
+                    }
+                    .align-items-base>div{
+                        padding: 20px;
+                        margin: 10px;
+                        background-color: var(--secondary);
+                        color: var(--card-bg);
+                        border-radius: 6px;
+                    }
+                    .align-items-base h3{
+                        color: var(--card-bg);
+                    }
+                    .align-items-base{
+                        height: 180px;
+                        background-color: var(--container-bg);
+                        padding: 15px;
+                        border-radius: 8px;
+                        border:2px dashed var(--grey);
+                        display: flex;
+                        align-items: baseline;
+                    }
+                </style>
+                <!-- Fim do Artigo 5 -->
+ 
+                <!-- Inicio Artigo 6 -->
+                <article>
+                    <h3>6. Align content</h3>
+                    <p>
+                        Usada para alinhar <b>as linhas</b> flexíveis quando há quebra de linha
+                        (<code>flex-wrap: wrap;</code>)e espaço extra no eixo cruzado.
+                    </p>
+                    <div class="demo-container align-content">
+                        <div class="demo-item">1</div>
+                        <div class="demo-item">2</div>
+                        <div class="demo-item">3</div>
+                        <div class="demo-item">4</div>
+                        <div class="demo-item">5</div>
+                        <div class="demo-item">6</div>
+                        <div class="demo-item">7</div>
+                        <div class="demo-item">8</div>
+                        <div class="demo-item">9</div>
+                        <div class="demo-item">10</div>
+                        <div class="demo-item">11</div>
+                        <div class="demo-item">12</div>
+                    </div>
+                </article>
+                <!-- CSS do Artigo 6. Align content -->
+                <style>
+                    .align-content>div{
+                        width: calc(25% - 20px); /* calculo para largura de 25% - 20px 'margem' */
+                        height: calc(33.33% - 60px);/* calculo para altura de 33.33% - 60px  '20px da margem e 40px do espaçamento' */
+                        padding: 20px 0px;
+                        margin: 10px;
+                        background-color: var(--text);
+                        text-align: center;
+                    }
+                    .align-content{
+                        height: 480px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-content: space-around;
+                    }
+                </style>
+                <!-- Fim do Artigo 6 -->
+            </section>
+            <section>
+                <h2 class="section-title">Parte 2: Cheatsheet (Resumo de propriedades)</h2>
+                <p>
+                    Use estes cards como um guia rápido para relembrar as propriedades e seus valores.<br>
+                    Dividimos entre o que vai no Elemento <b>'PAI'</b> e o que vao no Elemento <b>'FILHO'</b>.
+                </p>
+                <article>
+                    <h3>Elemento 'PAI'</h3>
+                    <p>Propriedades do Container.</p>
+ 
+                    <div class="grid-container">
+                        <!-- CARD 01 -->
+                        <div class="card">
+                            <h4>Display</h4>
+                            <div class="description"><p>Ativar o contexto flex.</p></div>
+                            <div class="value-title"><p>valores:</p></div>
+                            <ul>
+                                <li>
+                                    <code>flex</code> (em bloco)
+                                </li>
+                                <li>
+                                    <code>inline-flex</code> (em linha)
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- CARD 02-->
+                        <div class="card">
+                            <h4>flex-direction</h4>
+                            <div class="description"><p>Define o eixo principal.</p></div>
+                            <div class="value-title"><p>valores:</p></div>
+                            <ul>
+                                <li>
+                                    <code>row</code>, <code>row-reverse</code>
+                                </li>
+                                <li>
+                                    <code>column</code>, <code>column-reverse</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- CARD 03-->
+                        <div class="card">
+                            <h4>justify-content</h4>
+                            <div class="description"><p>Alinhamento do eixo principal</p></div>
+                            <div class="value-title"><p>valores:</p></div>
+                            <ul>
+                                <li>
+                                    <code>flex-start</code>, <code>flex-end</code>
+                                </li>
+                                <li><code>center</code></li>
+                                <li>
+                                    <code>space-between</code>, <code>space-around</code>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- CARD 04 -->
+                        <!--
+                            Criando toda a extrutura de html com atalho de desenvolvimento do vscode
+ 
+                            .card>h4+.description+.value-title+ul>li*3>code
+                        -->
+                        <div class="card">
+                            <h4>flex-wrap</h4>
+                            <div class="description">Quebra de linha.</div>
+                            <div class="value-title">Valores:</div>
+                            <ul>
+                                <li><code>nowrap</code>, <code>wrap</code></li>
+                                <li><code>wrap-re</code></li>
+                       
+                            </ul>
+                        </div>            
+                       
+                    </div>
+               
+                        <!--
+                            Criando a estrutura já com conteúdo com atalho de desenvolvimento do vscode
+                           
+                            .card>h4.{align-items}+description>(p{Alinhamento no Eixo Cruzado})^.values-title>(p{valores:})^ul>li>(code{stretch}+{,}+code{center})^li>(code{flex-start}+{,}+code{flex-end})
+                            ^li>code{baseline}
+                        -->
+ 
+                        <div class="card">
+                            <h4>align-items</h4>
+                            <div class="description">
+                                <p>Alinhamento no Eixo Cruzado</p>
+                            </div>
+                            <div class="values-title">
+                                <p>valores:</p>
+                            </div>
+                            <ul>
+                                <li><code>stretch</code>, <code>center</code></li>
+                                <li><code>flex-start</code>, <code>flex-end</code></li>
+                                <li><code>baseline</code></li>
+                            </ul>
+                        </div>
+                           
+                   
+                    <div class="card">
+                        <h4>Gap</h4>
+                        <div class="description">Espaçamento entre os itens</div>
+                        <div class="value-title">Exemplos:</div>
+                        <ul>
+                            <li><code>gap: 10px;</code></li>
+                            <li><code>gap: 10px 20px;</code></li>
+ 
+                        </ul>
+                    </div>
+                </div>      
+                </article>
+                <article>
+                    <!-- CARD 01-->
+                    <h3>Elemento Filhos</h3>
+                    <p>Propriedades do Container</p>
+                    <div class="grid-container">
+                         <h4>align-sel</h4>
+                         <div class="description"><p>Sobrescreve o align-items para um item especifico</p></div>
+                         <div class="value-title"><p>valores:</p></div>
+                         <ul>
+                            <li><code>auto</code>, <code>center</code>,
+                            <code>flex-start</code>, <code>stretch</code></li>
+                         </ul>
+                    </div>
+                        <!--CARD 02-->
+                        <div class="card">
+                            <h4>flex-grow / shrink</h4>
+                            <div class="description">
+                                <p>Capacidade de crescer ou encolher para preencher o container.</p>
+                            </div>
+                        <div class="value-title">
+                            <p>valores:</p>
+                        </div>    
+                        <ul>
+                            <li><code>0</code>(não altera)</li>
+                            <li><code>1</code>, <code>2</code>, etc. (proporção)</li>
+                        </ul>
+                        </div>
+                        <!-- CARD 03-->
+                        <div class="card">
+                            <h4>order</h4>
+                            <div class="description">
+                                <p>Altera a ordem visual de exibição</p>
+                            </div>
+                        <div class="value-title">
+                            <p>valores</p>
+                        </div>
+                        <ul>
+                            <li><code>0</code>(padrão)</li>
+                            <li><code>-1</code>(vai pro inicio)</li>
+                            <li><code>1</code>(vai pro final)</li>
+                        </ul>
+                        </div>                                    
+                </article>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
